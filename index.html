@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather App</title>
+	<link rel="stylesheet" href="assets/styles/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/styles/fonts.css"/>
+	<link rel="stylesheet/less" type="text/css" href="assets/less/styles.less"/>
+	<script src="assets/js/less.js" type="text/javascript"></script>
+	<script src="assets/js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var caruselConteiner =  $('.carousel-wrapper');
+			var images = caruselConteiner.find('img');
+			var leftBtn = caruselConteiner.find('.carousel-button-left');
+			var rightBtn = caruselConteiner.find('.carousel-button-right');
+
+			rightBtn.on('click', function() { 
+				
+				$.each(images, function(i, img) {
+					img = $(img);
+
+					if ( img.next('img').length ) {
+						img.attr('old-class', img.attr('class'));
+						img.attr('class', '');
+						img.addClass(img.next().attr('class'));
+					} else {
+						img.attr('old-class', img.attr('class'));
+						img.attr('class', '');
+						img.addClass(images.eq(0).attr('old-class'));
+					}
+				});
+
+				caruselConteiner.addClass('right-direction').removeClass('left-direction');
+			});	
+
+			leftBtn.on('click', function() {
+
+				$.each(images.get().reverse(), function(i, img) {
+					img = $(img);
+
+					if ( img.prev('img').length ) {
+						img.attr('old-class', img.attr('class'));
+						img.attr('class', '');
+						img.addClass(img.prev().attr('class'));
+					} else {
+						img.attr('old-class', img.attr('class'));
+						img.attr('class', '');
+						img.addClass(images.eq(images.length - 1).attr('old-class'));
+					}
+				});
+
+				caruselConteiner.addClass('left-direction').removeClass('right-direction');
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div id="main-wrapper">
+		<header id="header">
+			<div class="content-wrapper">
+		     	<nav class="nav">
+		         	<a href="#header" class="logo">Fun weather.</a>
+		         	<ul class="menu">
+		         		<li><a href="#header">Home</a></li>
+		         		<li><a href="#features">Features</a></li>
+		         		<li><a href="#reviews">Reviews</a></li>
+		         		<li><a href="#download">Download</a></li>
+		         	</ul>
+		         	<div class="icon-row">
+		             	<a href="#">
+		             		<svg version="1.1" viewBox="100 170 320 320" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M276.1,462V343.9h39.7l5.9-46h-45.6v-29.4c0-13.3,3.7-22.4,22.8-22.4h24.4v-41.2c-4.2-0.6-18.7-1.8-35.5-1.8  c-35.2,0-59.2,21.5-59.2,60.9v34h-39.8v46h39.8v118H276.1z"/></svg>
+		             	</a>
+		             	<a href="#">
+		             	<svg viewBox="0 0 56.7 56.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M28.2,16.7c-7,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8S41,36.5,41,29.5S35.2,16.7,28.2,16.7z M28.2,37.7   c-4.5,0-8.2-3.7-8.2-8.2s3.7-8.2,8.2-8.2s8.2,3.7,8.2,8.2S32.7,37.7,28.2,37.7z"/><circle cx="41.5" cy="16.4" r="2.9"/><path d="M49,8.9c-2.6-2.7-6.3-4.1-10.5-4.1H17.9c-8.7,0-14.5,5.8-14.5,14.5v20.5c0,4.3,1.4,8,4.2,10.7c2.7,2.6,6.3,3.9,10.4,3.9   h20.4c4.3,0,7.9-1.4,10.5-3.9c2.7-2.6,4.1-6.3,4.1-10.6V19.3C53,15.1,51.6,11.5,49,8.9z M48.4,39.9c0,3.1-0.9,5.6-2.7,7.3   c-1.8,1.7-4.3,2.6-7.3,2.6H18c-3,0-5.5-0.9-7.3-2.6C8.9,45.4,8,42.9,8,39.8V19.3c0-3,0.9-5.5,2.7-7.3c1.7-1.7,4.3-2.6,7.3-2.6h20.6   c3,0,5.5,0.9,7.3,2.7c1.7,1.8,2.7,4.3,2.7,7.2V39.9z"/></g></svg>
+		             	</a>
+		             	<a href="#">
+		             		<svg version="1.1" viewBox="100 170 320 320" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M196.9,462C317.2,462,383,362.3,383,275.9c0-2.8,0-5.6-0.2-8.5c12.8-9.3,23.8-20.7,32.6-33.9  c-11.9,5.3-24.6,8.8-37.6,10.3c13.7-8.2,23.9-21,28.8-36.2c-12.8,7.6-26.9,13-41.5,15.9c-24.8-26.3-66.2-27.6-92.5-2.8  c-17,16-24.2,39.8-18.9,62.5c-52.6-2.6-101.6-27.5-134.8-68.3c-17.4,29.9-8.5,68.1,20.2,87.3c-10.4-0.3-20.6-3.1-29.7-8.2  c0,0.3,0,0.5,0,0.8c0,31.1,22,57.9,52.5,64.1c-9.6,2.6-19.7,3-29.5,1.1c8.6,26.6,33.1,44.9,61.1,45.4  c-23.2,18.2-51.8,28.1-81.2,28.1c-5.2,0-10.4-0.3-15.6-0.9C126.5,451.8,161.3,462,196.9,462"/>
+		             		</svg>
+		             	</a>
+		     		</div>
+		     	</nav>
+         		<div class="content-container">
+					<div class="inner-container">
+						<h1>Get the most fun weather app</h1>
+						<p>Simple, nice and user-friendly application of the weather. Only useful information</p>
+						<div class="button-wrapper">
+							<a href="#" class="button reddish">Download</a>
+							<a href="#" class="button bluish">Features</a>
+						</div>
+					</div>
+					<div class="phone-container">
+						<div class="phone-wrapper">
+							<img class="phone" src="assets/images/phone.png" alt="white phone">
+							<img class="screenshot" src="assets/images/cloudy.png" alt="screenshot of app">
+							<span class="big-circle reddish left-position">Sunny</span>
+							<span class="big-circle bluish right-position">London</span>
+							<span class="small-circle white top-position">9°</span>
+							<span class="small-circle yellowish bottom-position">Rio</span>
+						</div>
+					</div>
+         		</div>
+				<div class="decor-container"></div>
+				<a href="#footer" class="scrolldown-button"></a>
+			</div>
+		</header>
+		<main id="main">
+			<section id="features">
+				<div class="content-wrapper">
+					<h2>Perfect features</h2>
+					<h3>Only necessary</h3>
+					<div id="features-wrapper">
+						<div class="features">
+							<img id="usability-logo" src="assets/images/logo-usability.png" alt="usability logo">
+							<div class="description">
+								<h4>Usability</h4>
+								<p>Sometimes the simplest things are the hardest to find. So we created a new line for everyday life</p>
+							</div>
+						</div>
+						<div class="features">
+							<img id="parallax-logo" src="assets/images/logo-parallax.png" alt="parallax logo">
+							<div class="description">
+								<h4>Parallax effect</h4>
+								<p>Sometimes the simplest things are the hardest to find. So we created a new line for everyday life.</p>
+							</div>
+						</div>
+						<div class="features">
+							<img id="colors-logo" src="assets/images/logo-colors.png" alt="colors logo">
+							<div class="description">
+								<h4>Unlimites colors</h4>
+								<p>Sometimes the simplest things are the hardest to find. So we created a new line for everyday life.</p>
+							</div>
+						</div>
+					</div>
+					<h2>Simple widgets</h2>
+					<h3>Drag and drop</h3>
+					<div class="carousel-wrapper">
+						<img class=" left" src="assets/images/widget1.png" alt="first variant of phone widget">
+						<img class=" center" src="assets/images/widget2.png" alt="second variant of phone widget">
+						<img class=" right" src="assets/images/widget3.png" alt="third variant of phone widget">
+						<div class="carousel-button-left"></div>
+						<div class="carousel-button-right"></div>
+					</div>
+					<h2>Screenshots</h2>
+					<h3>The brightest images</h3>
+					<div class="row">
+						<div class="screenshot-container">
+							<div class="phone-wrapper" data-text="Cloudy">
+								<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+								<img class="screenshot" src="assets/images/cloudy.png" alt="screenshot of cloudy weather">
+								<div class="big-circle yellowish right-position">Cloudy</div>
+								<div class="big-circle navy left-position font-size-29px">15</div>
+							</div>
+						</div>
+						<div class="description-container">
+							<img src="assets/images/cloudy-icon.png" alt="icon for cloudy weather">
+							<h2>When the clouds</h2>
+							<p>Variable information on the air humidity, the feeling of the weather, and the ability to share this with your friend</p>
+							<div class="weather-parameter-wrapper">
+								<div class="weather-parameter parameter1">95%</div>
+								<div class="weather-parameter parameter2">9°</div>
+								<div class="weather-parameter parameter3">Rainy</div>
+							</div>
+						</div>
+					</div>
+					<div class="rtl-direction row">
+						<div class="screenshot-container">
+							<div class="phone-wrapper" data-text="Sunny">
+								<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+								<img class="screenshot" src="assets/images/sunny.png" alt="screenshot of sunny weather">
+								<div class="big-circle orange right-position">Sunny</div>
+								<div class="big-circle reddish font-size-29px left-position ">31</div>
+							</div>
+						</div>
+						<div class="description-container">
+							<div id="circle-icon"></div>
+							<h2>When the sun</h2>
+							<p>Sometimes the simplest things are the hardest to find. So we created a new line for everyday life. Sometimes the simplest</p>
+							<div class="weather-parameter-wrapper">
+								<div class="weather-parameter parameter1">95%</div>
+								<div class="weather-parameter parameter2">9°</div>
+								<div class="weather-parameter parameter3">Rainy</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="screenshot-container">
+							<div class="phone-wrapper" data-text="Rainy">
+								<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+								<img class="screenshot" src="assets/images/rainy.png" alt="screenshot of rainy">
+								<div class="big-circle light-blue  right-position">Rainy</div>
+								<div class="big-circle violet left-position font-size-29px">9</div>
+							</div>
+						</div>
+						<div class="description-container">
+							<img src="assets/images/rainy-icon.png" alt="icon for cloudy weather">
+							<h2>When the rain</h2>
+							<p>Sometimes the simplest things are the hardest to find. So we created a new line for everyday life. Sometimes the simplest</p>
+							<div class="weather-parameter-wrapper">
+								<div class="weather-parameter parameter1">95%</div>
+								<div class="weather-parameter parameter2">9°</div>
+								<div class="weather-parameter parameter3">Rainy</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="reviews">
+				<div class="content-wrapper">
+					<h2>What people are saying</h2>
+					<h3>Reviews</h3>
+					<div class="reviews-wrapper">
+						<div class="review-container">
+							<p>What art offers is space - a certain breathing room for the spirit</p>
+							<p class="name">John Updake</p>
+						</div>
+						<div class="review-container">
+							<p>We do not see nature with our eyes, but with our understandings and out hearts</p>
+							<p class="name">William Hazlitt</p>
+						</div>
+						<div class="review-container">
+							<p>The only courage that matters is the kind that gets you from one moment to the next</p>
+							<p class="name">Mignon McLaughlin</p>
+						</div>
+						<div class="review-container">
+							<p>No man has a good enough memory to be a successful liar. </p>
+							<p class="name">Abraham Lincoln</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="download" class="section">
+				<div class="content-wrapper">
+					<div class="inner-container">
+						<h2>How Download the app?</h2>
+						<p>Just download the app from the store. Simple, nice and user-friendly application of the weather. Only relevant and useful information</p>
+						<div class="button-wrapper">
+							<a href="#">
+								<img src="assets/images/appstore-logo.png" alt="logo of app store">
+							</a>
+							<a href="#">
+								<img src="assets/images/google-play-logo.png" alt="logo of google play">
+							</a>
+						</div>
+					</div>
+					<div class="screenshot-container">
+						<div class="phone-wrapper left blur">
+							<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+							<img class="screenshot" src="assets/images/cloudy.png" alt="screenshot of cloudy weather">
+						</div>
+						<div class="phone-wrapper center">
+							<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+							<img class="screenshot" src="assets/images/sunny.png" alt="screenshot of sunny weather">
+						</div>
+						<div class="phone-wrapper right blur">
+							<img class="phone-frame" src="assets/images/black-phone1.png" alt="black mobile phone">
+							<img class="screenshot" src="assets/images/rainy.png" alt="screenshot of rainy">
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer id="footer">
+			<div class="content-wrapper">
+				<div class="nav">
+		         	<a href="#header" class="logo"><span>Fun</span> <span>weather.</span></a>
+		         	<ul class="menu">
+		         		<li><a href="#header">Home</a></li>
+		         		<li><a href="#features">Features</a></li>
+		         		<li><a href="#reviews">Reviews</a></li>
+		         		<li><a href="#download">Download</a></li>
+		         	</ul>
+		         	<div class="icon-row">
+		             	<a href="#">
+		             		<svg version="1.1" viewBox="100 170 320 320" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M276.1,462V343.9h39.7l5.9-46h-45.6v-29.4c0-13.3,3.7-22.4,22.8-22.4h24.4v-41.2c-4.2-0.6-18.7-1.8-35.5-1.8  c-35.2,0-59.2,21.5-59.2,60.9v34h-39.8v46h39.8v118H276.1z"/></svg>
+		             	</a>
+		             	<a href="#">
+		             	<svg viewBox="0 0 56.7 56.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M28.2,16.7c-7,0-12.8,5.7-12.8,12.8s5.7,12.8,12.8,12.8S41,36.5,41,29.5S35.2,16.7,28.2,16.7z M28.2,37.7   c-4.5,0-8.2-3.7-8.2-8.2s3.7-8.2,8.2-8.2s8.2,3.7,8.2,8.2S32.7,37.7,28.2,37.7z"/><circle cx="41.5" cy="16.4" r="2.9"/><path d="M49,8.9c-2.6-2.7-6.3-4.1-10.5-4.1H17.9c-8.7,0-14.5,5.8-14.5,14.5v20.5c0,4.3,1.4,8,4.2,10.7c2.7,2.6,6.3,3.9,10.4,3.9   h20.4c4.3,0,7.9-1.4,10.5-3.9c2.7-2.6,4.1-6.3,4.1-10.6V19.3C53,15.1,51.6,11.5,49,8.9z M48.4,39.9c0,3.1-0.9,5.6-2.7,7.3   c-1.8,1.7-4.3,2.6-7.3,2.6H18c-3,0-5.5-0.9-7.3-2.6C8.9,45.4,8,42.9,8,39.8V19.3c0-3,0.9-5.5,2.7-7.3c1.7-1.7,4.3-2.6,7.3-2.6h20.6   c3,0,5.5,0.9,7.3,2.7c1.7,1.8,2.7,4.3,2.7,7.2V39.9z"/></g></svg>
+		             	</a>
+		             	<a href="#">
+		             		<svg version="1.1" viewBox="100 170 320 320" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M196.9,462C317.2,462,383,362.3,383,275.9c0-2.8,0-5.6-0.2-8.5c12.8-9.3,23.8-20.7,32.6-33.9  c-11.9,5.3-24.6,8.8-37.6,10.3c13.7-8.2,23.9-21,28.8-36.2c-12.8,7.6-26.9,13-41.5,15.9c-24.8-26.3-66.2-27.6-92.5-2.8  c-17,16-24.2,39.8-18.9,62.5c-52.6-2.6-101.6-27.5-134.8-68.3c-17.4,29.9-8.5,68.1,20.2,87.3c-10.4-0.3-20.6-3.1-29.7-8.2  c0,0.3,0,0.5,0,0.8c0,31.1,22,57.9,52.5,64.1c-9.6,2.6-19.7,3-29.5,1.1c8.6,26.6,33.1,44.9,61.1,45.4  c-23.2,18.2-51.8,28.1-81.2,28.1c-5.2,0-10.4-0.3-15.6-0.9C126.5,451.8,161.3,462,196.9,462"/>
+		             		</svg>
+		             	</a>
+		     		</div>
+	         	</div>
+	         	<div class="line"></div>
+	         	<span id="rights">© Modified by VK 2016</span>
+	         	<a href="#header" class="scroll-up-button"></a>
+			</div>
+			
+		</footer>
+	</div>
+</body>
+</html>
