@@ -1,0 +1,85 @@
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: "Tahoma";
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #ffffff;
+}
+
+.main-wrapper {
+  background: greenyellow;
+  width: 100%;
+  max-width: 1280px;
+  min-height: 1024px;
+  border: 1px solid #000000;
+}
+
+#header {
+  background: #022929;
+  width: 100%;
+  max-width: 1152px;
+  min-height: 107px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: inline-block;
+  font-family: "Showcard Gothic";
+  background: #066666;
+  font-size: 29px;
+  color: #ffffff;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo--horizontal {
+  padding: 3px 13px 0 18px;
+  line-height: 29px;
+}
+
+.logo--vertical {
+  width: 31px;
+  word-wrap: break-word;
+  padding: 8px 6px;
+  line-height: 23px;
+  position: fixed;
+  top: 85px;
+  left: 35px;
+  z-index: 1;
+}
+
+#main {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+#main section {
+  background: #1e3a3a;
+  border: 10px solid #066666;
+  width: 100%;
+  max-width: 806px;
+}
+
+#main section h1 {
+  font-size: 45px;
+}
+
+#main aside {
+  background: #022929;
+  border: 10px solid #055252;
+  width: 100%;
+  max-width: 346px;
+}
+
+@media screen and (max-width: 768px) {
+  .logo--vertical {
+    display: none;
+  }
+}
