@@ -1,0 +1,18 @@
+{
+  "name": "condor",
+  "version": "1.0.0",
+  "description": "Website about online gambling experiences",
+  "main": "index.html",
+  "author": "Vasil Kotsev",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-htmlmin": "^2.4.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0"
+  },
+  "dependencies": {
+    "npm": "^5.7.1"
+  }
+}
