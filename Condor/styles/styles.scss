@@ -22,7 +22,7 @@ body {
 }
 
 .main-wrapper {
-    background: greenyellow;
+    //background: greenyellow;
     width: 100%;
     max-width: 1280px;
     min-height: 1024px;
@@ -161,8 +161,60 @@ body {
     }
 
     aside {
+        font-size: 16px;
         background: #022929;
         border: 10px solid #055252;
+        padding: 12px;
+
+        .aside-content-wrapper {
+            width: 100%;
+            max-width: 307px;
+            margin: 0 auto;
+        }
+
+        p {
+            text-transform: uppercase;
+            margin-bottom: 17px;
+        }
+
+        .socials {
+            margin-bottom: 31px;
+
+            a { 
+                display: inline-block;
+                text-decoration: none;
+
+                & + a {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        ul {
+            margin: -6px 0 21px;
+            a {
+                font-family: Verdana;
+                text-decoration: underline;
+                color: $main-font-color;
+            }
+
+        }
+    }
+
+    /*Carousel custom styles */
+
+    #aside-carousel {
+        background-color: grey;
+        margin-bottom: 20px;
+
+        .carousel-indicators {
+            bottom: -14px;
+
+            li {
+                min-height: 3px;
+                max-width: 3px;
+            }
+        }  
     }
 
 
@@ -190,9 +242,13 @@ body {
             margin-left: 5px;
 
             a {
-                color: #ffffff;
+                color: $main-font-color;
                 text-decoration: underline;
                 padding: 5px;
+
+                &:hover {
+                    color: #022929;
+                }
             }
         }
     }   
@@ -206,6 +262,10 @@ body {
 //Media queries
 
 @media screen and (max-width: 768px) {
+
+    // html {
+    //     font-size: 62.5%;
+    // }
 
     #header {
 
@@ -236,7 +296,7 @@ body {
     }
 
     #footer {
-        
+
         .footer-menu {
             line-height: 2.8;
         }

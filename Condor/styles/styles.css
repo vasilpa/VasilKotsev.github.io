@@ -11,7 +11,6 @@ body {
 }
 
 .main-wrapper {
-  background: greenyellow;
   width: 100%;
   max-width: 1280px;
   min-height: 1024px;
@@ -130,6 +129,7 @@ body {
   min-height: 836px;
   margin: 0 auto;
   margin-bottom: 10px;
+  /*Carousel custom styles */
 }
 
 #main .article {
@@ -159,8 +159,58 @@ body {
 }
 
 #main aside {
+  font-size: 16px;
   background: #022929;
   border: 10px solid #055252;
+  padding: 12px;
+}
+
+#main aside .aside-content-wrapper {
+  width: 100%;
+  max-width: 307px;
+  margin: 0 auto;
+}
+
+#main aside p {
+  text-transform: uppercase;
+  margin-bottom: 17px;
+}
+
+#main aside .socials {
+  margin-bottom: 31px;
+}
+
+#main aside .socials a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+#main aside .socials a + a {
+  margin-left: 10px;
+}
+
+#main aside ul {
+  margin: -6px 0 21px;
+}
+
+#main aside ul a {
+  font-family: Verdana;
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+#main #aside-carousel {
+  background-color: grey;
+  margin-bottom: 20px;
+}
+
+#main #aside-carousel .carousel-indicators {
+  bottom: -14px;
+}
+
+#main #aside-carousel .carousel-indicators li {
+  min-height: 3px;
+  max-width: 3px;
 }
 
 #footer {
@@ -191,6 +241,10 @@ body {
   color: #ffffff;
   text-decoration: underline;
   padding: 5px;
+}
+
+#footer .footer-menu li a:hover {
+  color: #022929;
 }
 
 @media screen and (max-width: 768px) {
